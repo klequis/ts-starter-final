@@ -2,6 +2,7 @@
   "name": "ts-starter-final",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3030",
   "dependencies": {
     "@types/react-redux": "^7.0.5",
     "autoprefixer": "7.1.6",

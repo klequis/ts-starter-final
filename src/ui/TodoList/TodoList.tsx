@@ -14,7 +14,7 @@ const TodoList = ({ todos }: Props) => {
       <ul className="todo-list">
         {todos && todos.length
           ? todos.map((todo, index) => {
-              return <TodoItem key={`todo-${todo.id}`} todo={todo} />
+              return <TodoItem key={`todo-${todo._id}`} todo={todo} />
             })
           : "No todos, yay!"}
       </ul>

@@ -1,7 +1,7 @@
 export interface Todo {
-  id: string,
+  _id: string,
   content: string,
-  completed: boolean,
+  completed?: boolean,
 }
 
 export interface TodosState {
@@ -22,4 +22,16 @@ interface ToggleTodoAction {
   payload: boolean
 }
 
-export type TodoActionTypes =  AddTodoAction | ToggleTodoAction
+export const TODOS_READ_KEY = 'TODOS_READ_KEY'
+
+interface TodosReadAction {
+  type: typeof TODOS_READ_KEY
+  payload: TodosState
+}
+
+export const TODOS_READ_REQUEST_KEY = 'TODOS_READ_REQUEST_KEY'
+
+
+
+
+export type TodoActionTypes =  AddTodoAction | ToggleTodoAction | TodosReadAction

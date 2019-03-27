@@ -1,9 +1,18 @@
 import * as React from "react"
-// import { connect } from "react-redux"
+import { connect } from "react-redux"
 // import { todosReadRequest } from '../../redux/actions/actions'
-// import { AppState } from '../../redux'
-import TodoList from './TodoList'
+import { todosReadRequest } from '../../redux/todo/actions'
 
+
+import { Todo } from '../../redux/todo/types'
+import { AppState } from '../../redux'
+
+
+
+
+import TodoList from './TodoList'
+import { getAllTodos } from '../../redux/todo/selectors'
+import { green } from '../../logger'
 
 // const TodoContainer = ({ todos }) => (
 //   <ul className="todo-list">
@@ -16,19 +25,28 @@ import TodoList from './TodoList'
 // )
 
 
-const todos = [
-  { id: '1', content: 'one', completed: false }
-]
+// const todos = [
+//   { id: '1', content: 'one', completed: false }
+// ]
 
-class TodoContainer extends React.Component {
-  // componentDidMount() {
-  //   console.log('did mount');
+interface IProps {
+  todos: Todo[]
+}
 
-  //   todosReadRequest()
-  // }
+class TodoContainer extends React.Component<IProps, []> {
+  componentDidMount() {
+    green('(0) didMount()')
+    todosReadRequest()
+    green('(7) didMount - done')
+  }
+
+  componentDidCatch() {
+    console.log('CATCH');
+
+  }
 
   render() {
-
+    const { todos }  = this.props
     return (
       <div>
         {/* <TodoList todos={this.props.todos} /> */}
@@ -38,13 +56,13 @@ class TodoContainer extends React.Component {
   }
 }
 
-// const mapStateToProps = (state: AppState) => {
-//   const todos = getAllTodos(state)
-//   return {
-//     todos
-//   }
-// }
+const mapStateToProps = (state: AppState) => {
+  const todos = getAllTodos(state)
+  return {
+    todos
+  }
+}
 
-// export default connect(mapStateToProps, todosReadRequest)(TodoContainer)
+export default connect(mapStateToProps, todosReadRequest)(TodoContainer)
 
-export default TodoContainer
+// export default TodoContainer

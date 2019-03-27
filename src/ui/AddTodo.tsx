@@ -26,9 +26,9 @@ class BAddTodo extends React.Component<Props, State> {
     if (inputVal.length > 0) {
       this.props.addTodo(
         {
-          id: '1',
+          _id: '1',
           content: 'hi',
-          completed: false
+          // completed: false
         }
       )
       this.setState({ inputVal: '' })

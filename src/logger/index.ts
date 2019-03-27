@@ -32,7 +32,7 @@ const stylePurple = [
 ].join(';')
 
 
-const getStyle = (styleName) => {
+const getStyle = (styleName: string) => {
   let color
   switch (styleName) {
     case 'red':
@@ -63,7 +63,7 @@ const getStyle = (styleName) => {
   return color
 }
 
-const makeMessage = (message = '', value = '', color = '', indent = 0) => {
+const makeMessage = (message: string = '', value: any = '', color: string = '', indent: number = 0) => {
   const nMessage = `%c[${message}]`
   const style = getStyle(color)
   const padding = ''.padStart(indent, ' ')
@@ -71,33 +71,33 @@ const makeMessage = (message = '', value = '', color = '', indent = 0) => {
   console.log(`${padding}${nMessage}`, style, value)
 }
 
-export const yellow = (message = '', value = '') => {
+export const yellow = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'yellow')
 }
-export const blue = (message = '', value = '') => {
+export const blue = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'blue')
 }
-export const red = (message = '', value = '') => {
+export const red = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'red')
 }
-export const green = (message = '', value = '') => {
+export const green = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'green')
 }
 
-export const orange = (message = '', value = '', indent = 0) => {
+export const orange = (message: string = '', value: any = '', indent = 0) => {
 
   makeMessage(message, value, 'orange', indent)
 }
 
-export const pink = (message = '', value = '') => {
+export const pink = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'pink')
 }
 
-export const purple = (message = '', value = '') => {
+export const purple = (message: string = '', value: any = '') => {
   makeMessage(message, value, 'purple')
 }
 
-export const log = (message = '', value = '', color = '', indent = false) => {
+export const log = (message: string = '', value: any = '', color = '', indent = false) => {
   let count = 3
   if (color === '') { count-- }
   if (value === '') { count-- }
